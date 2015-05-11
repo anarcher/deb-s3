@@ -15,11 +15,11 @@ RUN apt-get update && apt-get install -y \
 
 RUN gem install bundler
 
-WORKDIR /deb
+WORKDIR /
 RUN git clone https://github.com/anarcher/deb-s3.git
 
-WORKDIR /deb/deb-s3
-RUN git checkout a0228cc3a075d48eda0af8d4e97967a859d629ae && bundle install
+WORKDIR /deb-s3/
+RUN git checkout 1be201cd8eff052375fa83db6be8e1510e4e8345 && bundle install
 
-ENTRYPOINT ["/deb/deb-s3/bin/deb-s3"]
+ENTRYPOINT ["/deb-s3/bin/deb-s3"]
 CMD ["help"]
