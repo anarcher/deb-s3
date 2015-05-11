@@ -19,7 +19,7 @@ WORKDIR /deb
 RUN git clone https://github.com/anarcher/deb-s3.git
 
 WORKDIR /deb/deb-s3
-RUN git checkout 0a0fafb44d032baf1ee3f3b2f9dd0af7820171de && bundle install
+RUN git checkout 86e2415aed1e03f29846b7135f00f6340f05247a && bundle install
 
 ENTRYPOINT ["/deb/deb-s3/bin/deb-s3"]
 CMD ["help"]
