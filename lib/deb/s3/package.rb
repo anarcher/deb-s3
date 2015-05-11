@@ -45,7 +45,8 @@ class Deb::S3::Package
       p = self.new
       p.extract_info(extract_control(package))
       p.apply_file_info(package)
-      p.filename = package
+      #p.filename = package
+      p.filename = "#{p.name}-#{p.version}_#{p.architecture}.deb"
       p
     end
 
@@ -267,8 +268,6 @@ class Deb::S3::Package
       [k.sub(/\AX[BCS]{0,3}-/, ''), v]
     }]
     
-    self.filename = "#{self.name}-#{self.version}_#{self.architecture}.deb"
-
   end # def extract_info
 
   def apply_file_info(file)
