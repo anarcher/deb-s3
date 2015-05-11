@@ -266,6 +266,9 @@ class Deb::S3::Package
     self.attributes[:deb_field] = Hash[fields.map { |k, v|
       [k.sub(/\AX[BCS]{0,3}-/, ''), v]
     }]
+    
+    self.filename = "#{self.name}-#{self.version}_#{self.architecture}.deb"
+
   end # def extract_info
 
   def apply_file_info(file)
@@ -298,4 +301,5 @@ class Deb::S3::Package
       fields[field] = value if field
     end
   end
+
 end
