@@ -45,8 +45,7 @@ class Deb::S3::Package
       p = self.new
       p.extract_info(extract_control(package))
       p.apply_file_info(package)
-      #p.filename = package
-      p.filename = "#{p.name}-#{p.version}_#{p.architecture}.deb"
+      p.filename = package
       p
     end
 
