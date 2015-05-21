@@ -145,7 +145,7 @@ class Deb::S3::CLI < Thor
     files.collect { |f| Dir.glob(f) }.flatten.each do |file|
       log("Examining package file #{File.basename(file)}")
       pkg = Deb::S3::Package.parse_file(file)
-      url_filename = "#{pkg.name}-#{pkg.version}_#{pkg.architecture}.deb"
+      url_filename = "#{pkg.name}-#{pkg.full_version}_#{pkg.architecture}.deb"
       pkg.url_filename = "pool/#{options[:codename]}/#{component}/#{pkg.name[0]}/#{pkg.name[0..1]}/#{url_filename}"
 
       # copy over some options if they weren't given
